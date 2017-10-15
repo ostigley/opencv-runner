@@ -7,4 +7,14 @@ I'm following turorials here https://opencv-python-tutroals.readthedocs.io/en/la
 
 `docker build -t oliverstigley/opencv-runner .`
 
-`docker run oliverstigley/opencv-runner python ./src/test.py` to get going. 
+`docker create --name opencv -it oliverstigley/opencv-runner /bin/bash`
+
+`docker start opencv`
+
+`docker exec -it opencv pythonn src/python/test.py`
+
+Make changes to your `/python` folder, and run
+
+`docker cp python opencv:src/`
+
+to update the container.
