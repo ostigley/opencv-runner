@@ -11,10 +11,12 @@ I'm following turorials here https://opencv-python-tutroals.readthedocs.io/en/la
 
 `docker start opencv`
 
-`docker exec -it opencv pythonn src/python/test.py`
+`docker exec -it opencv python src/python/test.py`
 
 Make changes to your `/python` folder, and run
 
 `docker cp python opencv:src/`
+
+`docker cp opencv:src/results results`
 
 to update the container.
