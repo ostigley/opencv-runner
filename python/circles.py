@@ -6,8 +6,8 @@ img = cv2.imread('./src/images/catan-board-original.jpg', 0)
 img = cv2.medianBlur(img,5)
 cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
 
-circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,40,
-                            param1=50,param2=30,minRadius=0,maxRadius=0)
+circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,200,
+                            param1=50,param2=30,minRadius=20,maxRadius=30)
 
 circles = np.uint16(np.around(circles))
 for i in circles[0,:]:
