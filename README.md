@@ -17,6 +17,6 @@ Make changes to your `/python` folder, and run
 
 `docker cp python opencv:src/`
 
-`docker cp opencv:src/results results`
+`docker cp opencv:src/results ./`
 
 to update the container.
