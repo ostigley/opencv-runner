@@ -14,3 +14,14 @@ ap.add_argument("-i", "--image", required=True,
 ap.add_argument("-p", "--preprocess", type=str, default="thresh",
   help="type of preprocessing to be done")
 args = vars(ap.parse_args())
+
+
+
+
+
+
+# save circles with their coordinate information in the image some how.  Or.. save circle as filename as cordinate naming system
+# read each image and return numeral - save in image somehow?
+# 
+# 
+# 

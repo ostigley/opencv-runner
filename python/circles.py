@@ -19,6 +19,39 @@ row3 = sorted([circles[7], circles[8], circles[9], circles[10]], key=lambda x: x
 row4 = sorted([circles[11], circles[12], circles[13], circles[14]], key=lambda x: x[0])
 row5 = sorted([circles[15], circles[16], circles[17]], key=lambda x: x[0])
 
+# TODO: locate desert based on length of rows
+if len(row1) == 2:
+  print('The desert is in row1')
+if len(row2) == 3:
+  print('The desert is in row2')
+if len(row3) == 4:
+  print('The desert is in row3')
+if len(row4) == 3:
+  print('The desert is in ro42')
+if len(row5) == 2:
+  print('The desert is in row5')
+
+# Save segment of hex
+hex_s = None
+hex_h = None
+hex_i = None
+hex_r = None
+hex_b = None
+hex_c = None
+hex_j = None
+hex_q = None
+hex_g = None
+hex_a = None
+hex_d = None
+hex_k = None
+hex_p = None
+hex_f = None
+hex_e = None
+hex_l = None
+hex_o = None
+hex_n = None
+hex_m = None
+
 for i in circles:
     # draw the outer circle
     cv2.circle(cimg,(i[0],i[1]),i[2],(0,255,0),2)
