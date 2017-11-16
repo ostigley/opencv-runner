@@ -1,14 +1,23 @@
 # https://www.pyimagesearch.com/2014/07/21/detecting-circles-images-using-opencv-hough-circles/
 import numpy as np
 import cv2
-img = cv2.imread('./src/images/catan-board-original.jpg', 0)
-
+img = cv2.imread('./src/images/catan-game-board.jpg', 0)
+height, width = img.shape
+circleRadius = int(width/22/2)
+minRadius = circleRadius - 5
+maxRadius = circleRadius + 5
+cropRadius =  int(circleRadius * 0.7)
+# minSeparation = int(width)
 # img = cv2.medianBlur(img,5)
 cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
-
+print(circleRadius, minRadius, maxRadius, cropRadius)
 circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,200,
-                            param1=50,param2=30,minRadius=25,maxRadius=30)
+                            param1=50,param2=30,minRadius=minRadius,maxRadius=maxRadius)
 # round
+print(circles)
+# if not any(circles):
+#   print('no circles');
+#   exit();
 circles = np.uint16(np.around(circles))
 
 # Sort in to hexes and their rows
@@ -32,24 +41,24 @@ if len(row5) == 2:
   print('The desert is in row5')
 
 # Save segment of hex
-circle0 = cimg[(circles[0][1]-20):(circles[0][1]+20), (circles[0][0]-20):(circles[0][0]+20) ]
-circle1 = cimg[(circles[1][1]-20):(circles[1][1]+20), (circles[1][0]-20):(circles[1][0]+20) ]
-circle2 = cimg[(circles[2][1]-20):(circles[2][1]+20), (circles[2][0]-20):(circles[2][0]+20) ]
-circle3 = cimg[(circles[3][1]-20):(circles[3][1]+20), (circles[3][0]-20):(circles[3][0]+20) ]
-circle4 = cimg[(circles[4][1]-20):(circles[4][1]+20), (circles[4][0]-20):(circles[4][0]+20) ]
-circle5 = cimg[(circles[5][1]-20):(circles[5][1]+20), (circles[5][0]-20):(circles[5][0]+20) ]
-circle6 = cimg[(circles[6][1]-20):(circles[6][1]+20), (circles[6][0]-20):(circles[6][0]+20) ]
-circle7 = cimg[(circles[7][1]-20):(circles[7][1]+20), (circles[7][0]-20):(circles[7][0]+20) ]
-circle8 = cimg[(circles[8][1]-20):(circles[8][1]+20), (circles[8][0]-20):(circles[8][0]+20) ]
-circle9 = cimg[(circles[9][1]-20):(circles[9][1]+20), (circles[9][0]-20):(circles[9][0]+20) ]
-circle10 = cimg[(circles[10][1]-20):(circles[10][1]+20), (circles[10][0]-20):(circles[10][0]+20) ]
-circle11 = cimg[(circles[11][1]-20):(circles[11][1]+20), (circles[11][0]-20):(circles[11][0]+20) ]
-circle12 = cimg[(circles[12][1]-20):(circles[12][1]+20), (circles[12][0]-20):(circles[12][0]+20) ]
-circle13 = cimg[(circles[13][1]-20):(circles[13][1]+20), (circles[13][0]-20):(circles[13][0]+20) ]
-circle14 = cimg[(circles[14][1]-20):(circles[14][1]+20), (circles[14][0]-20):(circles[14][0]+20) ]
-circle15 = cimg[(circles[15][1]-20):(circles[15][1]+20), (circles[15][0]-20):(circles[15][0]+20) ]
-circle16 = cimg[(circles[16][1]-20):(circles[16][1]+20), (circles[16][0]-20):(circles[16][0]+20) ]
-circle17 = cimg[(circles[17][1]-20):(circles[17][1]+20), (circles[17][0]-20):(circles[17][0]+20) ]
+circle0 = cimg[(circles[0][1]-cropRadius):(circles[0][1]+cropRadius), (circles[0][0]-cropRadius):(circles[0][0]+cropRadius) ]
+circle1 = cimg[(circles[1][1]-cropRadius):(circles[1][1]+cropRadius), (circles[1][0]-cropRadius):(circles[1][0]+cropRadius) ]
+circle2 = cimg[(circles[2][1]-cropRadius):(circles[2][1]+cropRadius), (circles[2][0]-cropRadius):(circles[2][0]+cropRadius) ]
+circle3 = cimg[(circles[3][1]-cropRadius):(circles[3][1]+cropRadius), (circles[3][0]-cropRadius):(circles[3][0]+cropRadius) ]
+circle4 = cimg[(circles[4][1]-cropRadius):(circles[4][1]+cropRadius), (circles[4][0]-cropRadius):(circles[4][0]+cropRadius) ]
+circle5 = cimg[(circles[5][1]-cropRadius):(circles[5][1]+cropRadius), (circles[5][0]-cropRadius):(circles[5][0]+cropRadius) ]
+circle6 = cimg[(circles[6][1]-cropRadius):(circles[6][1]+cropRadius), (circles[6][0]-cropRadius):(circles[6][0]+cropRadius) ]
+circle7 = cimg[(circles[7][1]-cropRadius):(circles[7][1]+cropRadius), (circles[7][0]-cropRadius):(circles[7][0]+cropRadius) ]
+circle8 = cimg[(circles[8][1]-cropRadius):(circles[8][1]+cropRadius), (circles[8][0]-cropRadius):(circles[8][0]+cropRadius) ]
+circle9 = cimg[(circles[9][1]-cropRadius):(circles[9][1]+cropRadius), (circles[9][0]-cropRadius):(circles[9][0]+cropRadius) ]
+circle10 = cimg[(circles[10][1]-cropRadius):(circles[10][1]+cropRadius), (circles[10][0]-cropRadius):(circles[10][0]+cropRadius) ]
+circle11 = cimg[(circles[11][1]-cropRadius):(circles[11][1]+cropRadius), (circles[11][0]-cropRadius):(circles[11][0]+cropRadius) ]
+circle12 = cimg[(circles[12][1]-cropRadius):(circles[12][1]+cropRadius), (circles[12][0]-cropRadius):(circles[12][0]+cropRadius) ]
+circle13 = cimg[(circles[13][1]-cropRadius):(circles[13][1]+cropRadius), (circles[13][0]-cropRadius):(circles[13][0]+cropRadius) ]
+circle14 = cimg[(circles[14][1]-cropRadius):(circles[14][1]+cropRadius), (circles[14][0]-cropRadius):(circles[14][0]+cropRadius) ]
+circle15 = cimg[(circles[15][1]-cropRadius):(circles[15][1]+cropRadius), (circles[15][0]-cropRadius):(circles[15][0]+cropRadius) ]
+circle16 = cimg[(circles[16][1]-cropRadius):(circles[16][1]+cropRadius), (circles[16][0]-cropRadius):(circles[16][0]+cropRadius) ]
+circle17 = cimg[(circles[17][1]-cropRadius):(circles[17][1]+cropRadius), (circles[17][0]-cropRadius):(circles[17][0]+cropRadius) ]
 
 cv2.imwrite('./src/results/circle0.jpg', circle0)
 cv2.imwrite('./src/results/circle1.jpg', circle1)
