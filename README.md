@@ -19,4 +19,6 @@ Make changes to your `/python` folder, and run
 
 `docker cp opencv:src/results ./`
 
+`tesseract -l eng circles-for-tesseract.txt stdout --psm 10  --oem 2 -c tessedit_write_images=true`
+
 to update the container.
