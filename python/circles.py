@@ -3,11 +3,11 @@ import numpy as np
 import cv2
 img = cv2.imread('./src/images/catan-board-original.jpg', 0)
 
-img = cv2.medianBlur(img,5)
+# img = cv2.medianBlur(img,5)
 cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
 
 circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,200,
-                            param1=50,param2=30,minRadius=20,maxRadius=30)
+                            param1=50,param2=30,minRadius=25,maxRadius=30)
 # round
 circles = np.uint16(np.around(circles))
 
@@ -32,24 +32,24 @@ if len(row5) == 2:
   print('The desert is in row5')
 
 # Save segment of hex
-circle0 = cimg[(circles[0][1]-30):(circles[0][1]+30), (circles[0][0]-30):(circles[0][0]+30) ]
-circle1 = cimg[(circles[1][1]-30):(circles[1][1]+30), (circles[1][0]-30):(circles[1][0]+30) ]
-circle2 = cimg[(circles[2][1]-30):(circles[2][1]+30), (circles[2][0]-30):(circles[2][0]+30) ]
-circle3 = cimg[(circles[3][1]-30):(circles[3][1]+30), (circles[3][0]-30):(circles[3][0]+30) ]
-circle4 = cimg[(circles[4][1]-30):(circles[4][1]+30), (circles[4][0]-30):(circles[4][0]+30) ]
-circle5 = cimg[(circles[5][1]-30):(circles[5][1]+30), (circles[5][0]-30):(circles[5][0]+30) ]
-circle6 = cimg[(circles[6][1]-30):(circles[6][1]+30), (circles[6][0]-30):(circles[6][0]+30) ]
-circle7 = cimg[(circles[7][1]-30):(circles[7][1]+30), (circles[7][0]-30):(circles[7][0]+30) ]
-circle8 = cimg[(circles[8][1]-30):(circles[8][1]+30), (circles[8][0]-30):(circles[8][0]+30) ]
-circle9 = cimg[(circles[9][1]-30):(circles[9][1]+30), (circles[9][0]-30):(circles[9][0]+30) ]
-circle10 = cimg[(circles[10][1]-30):(circles[10][1]+30), (circles[10][0]-30):(circles[10][0]+30) ]
-circle11 = cimg[(circles[11][1]-30):(circles[11][1]+30), (circles[11][0]-30):(circles[11][0]+30) ]
-circle12 = cimg[(circles[12][1]-30):(circles[12][1]+30), (circles[12][0]-30):(circles[12][0]+30) ]
-circle13 = cimg[(circles[13][1]-30):(circles[13][1]+30), (circles[13][0]-30):(circles[13][0]+30) ]
-circle14 = cimg[(circles[14][1]-30):(circles[14][1]+30), (circles[14][0]-30):(circles[14][0]+30) ]
-circle15 = cimg[(circles[15][1]-30):(circles[15][1]+30), (circles[15][0]-30):(circles[15][0]+30) ]
-circle16 = cimg[(circles[16][1]-30):(circles[16][1]+30), (circles[16][0]-30):(circles[16][0]+30) ]
-circle17 = cimg[(circles[17][1]-30):(circles[17][1]+30), (circles[17][0]-30):(circles[17][0]+30) ]
+circle0 = cimg[(circles[0][1]-20):(circles[0][1]+20), (circles[0][0]-20):(circles[0][0]+20) ]
+circle1 = cimg[(circles[1][1]-20):(circles[1][1]+20), (circles[1][0]-20):(circles[1][0]+20) ]
+circle2 = cimg[(circles[2][1]-20):(circles[2][1]+20), (circles[2][0]-20):(circles[2][0]+20) ]
+circle3 = cimg[(circles[3][1]-20):(circles[3][1]+20), (circles[3][0]-20):(circles[3][0]+20) ]
+circle4 = cimg[(circles[4][1]-20):(circles[4][1]+20), (circles[4][0]-20):(circles[4][0]+20) ]
+circle5 = cimg[(circles[5][1]-20):(circles[5][1]+20), (circles[5][0]-20):(circles[5][0]+20) ]
+circle6 = cimg[(circles[6][1]-20):(circles[6][1]+20), (circles[6][0]-20):(circles[6][0]+20) ]
+circle7 = cimg[(circles[7][1]-20):(circles[7][1]+20), (circles[7][0]-20):(circles[7][0]+20) ]
+circle8 = cimg[(circles[8][1]-20):(circles[8][1]+20), (circles[8][0]-20):(circles[8][0]+20) ]
+circle9 = cimg[(circles[9][1]-20):(circles[9][1]+20), (circles[9][0]-20):(circles[9][0]+20) ]
+circle10 = cimg[(circles[10][1]-20):(circles[10][1]+20), (circles[10][0]-20):(circles[10][0]+20) ]
+circle11 = cimg[(circles[11][1]-20):(circles[11][1]+20), (circles[11][0]-20):(circles[11][0]+20) ]
+circle12 = cimg[(circles[12][1]-20):(circles[12][1]+20), (circles[12][0]-20):(circles[12][0]+20) ]
+circle13 = cimg[(circles[13][1]-20):(circles[13][1]+20), (circles[13][0]-20):(circles[13][0]+20) ]
+circle14 = cimg[(circles[14][1]-20):(circles[14][1]+20), (circles[14][0]-20):(circles[14][0]+20) ]
+circle15 = cimg[(circles[15][1]-20):(circles[15][1]+20), (circles[15][0]-20):(circles[15][0]+20) ]
+circle16 = cimg[(circles[16][1]-20):(circles[16][1]+20), (circles[16][0]-20):(circles[16][0]+20) ]
+circle17 = cimg[(circles[17][1]-20):(circles[17][1]+20), (circles[17][0]-20):(circles[17][0]+20) ]
 
 cv2.imwrite('./src/results/circle0.jpg', circle0)
 cv2.imwrite('./src/results/circle1.jpg', circle1)
