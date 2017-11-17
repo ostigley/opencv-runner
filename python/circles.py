@@ -1,16 +1,16 @@
 # https://www.pyimagesearch.com/2014/07/21/detecting-circles-images-using-opencv-hough-circles/
 import numpy as np
 import cv2
-img = cv2.imread('./src/images/catan-board-original.jpg', 0)
+img = cv2.imread('./src/images/catan-game-board-straight.jpg', 0)
 height, width = img.shape
 circleRadius = int(width/22/2)
 minRadius = circleRadius - 5
 maxRadius = circleRadius + 5
-cropRadius =  int(circleRadius * 0.7)
-# minSeparation = int(width)
-# img = cv2.medianBlur(img,5)
+cropRadiusX =  int(circleRadius * 0.65)
+cropRadiusY =  int(circleRadius * 0.5)
+
 cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
-print(circleRadius, minRadius, maxRadius, cropRadius)
+
 circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,200,
                             param1=50,param2=30,minRadius=minRadius,maxRadius=maxRadius)
 # round
@@ -43,7 +43,7 @@ if len(row5) == 2:
 # Save segment of hex
 for i,circle in enumerate(circles):
   # Crop and save
-  smallCircle = cimg[(circles[i][1]-cropRadius):(circles[i][1]+cropRadius), (circles[i][0]-cropRadius):(circles[i][0]+cropRadius) ]
+  smallCircle = cimg[(circles[i][1]-cropRadiusY):(circles[i][1]+cropRadiusY), (circles[i][0]-cropRadiusX):(circles[i][0]+cropRadiusX) ]
   cv2.imwrite('./src/results/circle' + str(i)  + '.jpg', smallCircle)
 
   # draw the outer circle
