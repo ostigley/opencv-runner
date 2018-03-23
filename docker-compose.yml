@@ -1,0 +1,29 @@
+version: '3.2'
+services:
+  opencv:
+    # image: jjanzic/docker-python3-opencv
+    container_name: open-cv-container
+    build:
+      context: .
+      dockerfile: Dockerfile_opencv
+    command: bash
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/var/src
+
+#   ruby:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile_ruby
+#     tty: true
+#     stdin_open: true
+#     command: irb
+#     # volumes:
+#     #   - opencv-volume:/usr/local/
+#     depends_on:
+#       - opencv
+
+# volumes:
+#   opencv-volume:
+#   opencv-volume2:

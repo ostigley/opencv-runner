@@ -1,0 +1,4 @@
+FROM tesseractshadow/tesseract4re
+FROM jjanzic/docker-python3-opencv
+RUN pip install matplotlib pillow pytesseract image && mkdir -p /var/src/
+WORKDIR /var/src
